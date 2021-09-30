@@ -1,3 +1,5 @@
+from Service.choose_class import choose_class
+
 heroes = {
     "Dranei":
         [
@@ -39,43 +41,43 @@ heroes = {
         ],
 
     "Night Elf":
-            [
-                {
-                    "Rogue":
-                        {
-                            "Hp": 480,
-                            "Energy": 100,
-                            "level": 1
-                        }
-                },
+        [
+            {
+                "Rogue":
+                    {
+                        "Hp": 480,
+                        "Energy": 100,
+                        "level": 1
+                    }
+            },
 
-                {
-                    "Hunter":
-                        {
-                            "Hp": 4800,
-                            "concentration": 100,
-                            "level": 1
-                        }
-                },
+            {
+                "Hunter":
+                    {
+                        "Hp": 4800,
+                        "concentration": 100,
+                        "level": 1
+                    }
+            },
 
-                {
-                    "Priest":
-                        {
-                            "Hp": 400,
-                            "mana": 300,
-                            "level": 1
-                        }
-                },
+            {
+                "Priest":
+                    {
+                        "Hp": 400,
+                        "mana": 300,
+                        "level": 1
+                    }
+            },
 
-                {
-                    "Warrior":
-                        {
-                            "Hp": 500,
-                            "rage": 0,
-                            "level": 1
-                        }
-                },
-            ],
+            {
+                "Warrior":
+                    {
+                        "Hp": 500,
+                        "rage": 0,
+                        "level": 1
+                    }
+            },
+        ],
 
     "Gnome":
         [
@@ -169,24 +171,18 @@ class Player:
             for klasebi in item.keys():
                 self.options.append(klasebi)
 
-        def choose_class(self):
-            if self.race in heroes:
-                self.klas = input(f"Classes to choose: {self.options} >> ")
-                for hero in heroes[self.race]:
-                    self.hp = hero[self.klas]["Hp"]
-
         try:
             if self.race == "Night Elf":
-                choose_class(self)
+                choose_class(self, self.options)
 
             elif self.race == "Gnome":
-                choose_class(self)
+                choose_class(self, self.options)
 
             elif self.race == "Human":
-                choose_class(self)
+                choose_class(self, self.options)
 
             elif self.race == "Dranei":
-                choose_class(self)
+                choose_class(self, self.options)
         except KeyError:
             pass
 
@@ -195,6 +191,5 @@ class Player:
 
 
 p1 = Player()
-
 
 p1.info()

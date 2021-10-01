@@ -158,6 +158,29 @@ heroes = {
         ]
 }
 
+spellBook = {
+    "Rogue":
+        {
+            "Basic Attack":
+                {
+                    "dmg": 3,
+                    "energy": 0
+                },
+
+            "Stab":
+                {
+                    "dmg": 9,
+                    "energy": 35
+
+                },
+
+            "Eviscerate":
+                {
+
+                }
+        }
+}
+
 
 class Player:
     def __init__(self):
@@ -166,7 +189,6 @@ class Player:
         self.hp = None
         self.name = input("Enter YOur Character Name >> ")
         self.options = []
-
         for item in heroes[self.race]:
             for klasebi in item.keys():
                 self.options.append(klasebi)
@@ -189,7 +211,12 @@ class Player:
     def info(self):
         print(f"Race: {self.race}, HP: {self.hp}, Class: {self.klas}, Name: {self.name}")
 
+    def spell_book(self):
+        if self.klas in spellBook:
+            print(f"Spells: {spellBook[self.klas]}")
+
 
 p1 = Player()
 
 p1.info()
+p1.spell_book()

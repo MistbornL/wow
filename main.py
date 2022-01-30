@@ -1,8 +1,10 @@
-from Service.player_class import Player
+from Service.choose_race import choose_class_for_race
+from classes.player import Player
+from Service.heroes import heroes
 
 
 p1 = Player()
 
-p1.choose_class_for_race()
+choose_class_for_race(p1.race, heroes, p1.klas, p1.options, p1.stats)
 p1.info()
 p1.spell_book()

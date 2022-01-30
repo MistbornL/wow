@@ -1,4 +1,5 @@
 from Service.heroes import heroes, spellBook
+from Service.choose_race import choose_class_for_race
 
 
 class Player:
@@ -12,14 +13,6 @@ class Player:
         for hero in heroes[self.race]:
             for klasebi in hero.keys():
                 self.options.append(klasebi)
-
-    def choose_class_for_race(self):
-        if self.race in heroes:
-            self.klas = input(f"Classes to choose: {self.options} >> ")
-            for classes in heroes[self.race]:
-                for item in classes:
-                    if item == self.klas:
-                        self.stats = classes[self.klas]
 
     def info(self):
         print(f"Race: {self.race}, stats: {self.stats}, Class: {self.klas}, Name: {self.name}")
